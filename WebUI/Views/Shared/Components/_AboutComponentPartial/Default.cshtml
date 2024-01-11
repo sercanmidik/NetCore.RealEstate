@@ -1,0 +1,35 @@
+﻿@model Service
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                    <img class="img-fluid w-100" src="~/myimages/service/@Model.ImageUrl">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="mb-4">@Model.Title</h1>
+                <p class="mb-4">@Model.Content</p>
+                @if(Model.TaskName!="")
+                {
+                    <p><i class="fa fa-check text-primary me-3"></i>@Model.TaskName</p>
+                }
+                @if (Model.TaskName2 != "")
+                {
+                    <p><i class="fa fa-check text-primary me-3"></i>@Model.TaskName2</p>
+                }
+                @if (Model.TaskName3 != "")
+                {
+                    <p><i class="fa fa-check text-primary me-3"></i>@Model.TaskName3</p>
+                }
+                @if (Model.TaskName4 != "")
+                {
+                    <p><i class="fa fa-check text-primary me-3"></i>@Model.TaskName4</p>
+                }
+              
+               
+            </div>
+        </div>
+    </div>
+</div>

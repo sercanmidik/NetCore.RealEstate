@@ -1,0 +1,38 @@
+﻿@model CreateContactDto
+<div class="col-md-6">
+    <div class="wow fadeInUp" data-wow-delay="0.5s">
+        <p class="mb-4">Mesaj Göndermek İsterseniz</p>
+        <form method="post" asp-action="CreateContact" asp-controller="Contact">
+            <div class="text-danger" asp-validation-summary="All"></div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Adınız Soyadınız" asp-for="Name" required>
+                        <label>Adınız</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" placeholder="Mail Adresiniz" asp-for="Email" required>
+                        <label>Mail Adresiniz</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Konu Yazınız" asp-for="Subject" required>
+                        <label>Konu</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Mesajınızı Yazınız" style="height: 150px" asp-for="Message"></textarea>
+                        <label>Mesaj</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Mesaj Gönder</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

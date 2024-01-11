@@ -1,0 +1,12 @@
+﻿@model ResultGetInTouchDto
+<div class="col-lg-4 col-md-6">
+    <h5 class="text-white mb-4">Ulaşabileceğiz Adresler</h5>
+    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>@Model.Address</p>
+    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>@Model.PhoneNumber</p>
+    <p class="mb-2"><i class="fa fa-envelope me-3"></i>@Model.Email</p>
+    <div class="d-flex pt-2">
+        <a class="btn btn-outline-light btn-social" href="@Model.TwitterUrl"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-outline-light btn-social" href="@Model.FacebookUrl"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-outline-light btn-social" href="@Model.InstagramUrl"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>

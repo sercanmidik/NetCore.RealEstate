@@ -1,0 +1,47 @@
+﻿@model List<TeamFriend>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Adı</th>
+                <th>Ünvanı</th>
+                <th>Resmi</th>
+                <th>Durumu</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Name</td>
+                    <td>@item.Title</td>
+                    <td><img src="~/myimages/teamfriend/@item.ImageUrl" alt="Resim yok" style="width:75px;height:75px" /></td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminTeamFriend/UpdateTeamFriend/@item.TeamFriendId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminTeamFriend/DeleteTeamFriend/@item.TeamFriendId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminTeamFriend/CreateTeamFriend/">Yeni Personel</a>
+</div>
+

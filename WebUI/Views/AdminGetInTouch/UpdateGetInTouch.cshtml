@@ -1,0 +1,35 @@
+﻿@model UpdateGetInTouchDto
+@{
+    ViewData["Title"] = "UpdateGetInTouch";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div style="background-color:white">
+    <form method="post" asp-action="UpdateGetInTouch" asp-controller="AdminGetInTouch">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="GetInTouchId" />
+        <label>Adres</label>
+        <input type="text" class="form-control" asp-for="Address" placeholder="Adres Giriniz">
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="Telefon Numarası Giriniz">
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="email" class="form-control" asp-for="Email" placeholder="Mail Adresi Giriniz">
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="TwitterUrl" placeholder="Twitter Adresi Giriniz">
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="FacebookUrl" placeholder="Facebook Adresi Giriniz">
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="InstagramUrl" placeholder="İnstagram Adresi Giriniz">
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="FrameString" placeholder="Konum Bilgisi Giriniz">
+        <br />
+        <button class="btn btn-success mt-3" type="submit">Kayıt Yap</button>
+    </form>
+</div>
+

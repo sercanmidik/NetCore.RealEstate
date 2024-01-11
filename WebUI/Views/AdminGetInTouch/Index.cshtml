@@ -1,0 +1,55 @@
+﻿@model List<GetInTouch>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Adres</th>
+                <th>Telefon Numarası</th>
+                <th>Mail</th>
+                <th>Twitter Adresi</th>
+                <th>Facebook Adresi</th>
+                <th>İnstagram Adresi</th>
+                <th>Konum Adresi Adresi</th>
+                <th>Durum</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Address</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Email</td>
+                    <td>@item.TwitterUrl</td>
+                    <td>@item.FacebookUrl</td>
+                    <td>@item.InstagramUrl</td>
+                    <td>@item.FrameString</td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminGetInTouch/UpdateGetInTouch/@item.GetInTouchId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminGetInTouch/DeleteGetInTouch/@item.GetInTouchId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminGetInTouch/CreateGetInTouch/">Yeni İletişim Yeri</a>
+</div>
+

@@ -1,0 +1,51 @@
+﻿@model List<ResultProductDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>İlan Türü</th>
+                <th>Durumu</th>
+                <th>Fiyatı</th>
+                <th>Başlık</th>
+                <th>Resim</th>
+                <th>Durum</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.CategoryName</td>
+                    <td>@item.SubCategoryName</td>
+                    <td>@item.Price</td>
+                    <td>@item.Title</td>
+                    <td><img src="~/myimages/product/@item.ImageUrl" alt="Resim yok" style="width:75px;height:75px" /></td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminProduct/UpdateProduct/@item.ProductId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminProduct/DeleteProduct/@item.ProductId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminProduct/CreateProduct/">Yeni Marka</a>
+</div>
+

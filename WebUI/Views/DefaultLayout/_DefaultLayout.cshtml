@@ -1,0 +1,23 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/DefaultLayout/HeadPartial.cshtml")
+
+<body>
+    <div class="container-xxl bg-white p-0">
+  
+        @await Html.PartialAsync("/Views/DefaultLayout/LoadingPartial.cshtml")
+
+        @await Component.InvokeAsync("_NavbarComponentPartial")
+
+        @RenderBody()
+
+        @await Html.PartialAsync("/Views/DefaultLayout/FooterPartial.cshtml")
+
+       
+    </div>
+    @await Html.PartialAsync("/Views/DefaultLayout/ScriptPartial.cshtml")
+</body>
+
+</html>

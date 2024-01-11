@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ResultNewProductDetailDto>
+@{
+    ViewData["Title"] = "LookProductDetailId";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Özellik Adı</th>
+                <th>Değeri</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.PropertyName</td>
+                    <td>@item.PropertyValue</td>
+                    <td><a class="btn btn-warning" href="/AdminProductDetail/UpdateProductDetailId/@item.ProductDetailId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminProductDetail/DeleteProductProperty/@item.ProductDetailId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

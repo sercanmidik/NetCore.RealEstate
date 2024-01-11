@@ -1,0 +1,22 @@
+﻿@model UpdateGalleryDto
+@{
+    ViewData["Title"] = "UpdateGallery";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div style="background-color:white">
+    <form method="post" asp-action="UpdateGallery" asp-controller="AdminGallery">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="GalleryId" />
+        <label>Resim Adı</label>
+        <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Resim Adını Giriniz">
+        <br />
+        <div class="form-check form-switch">
+            <input asp-for="Status" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+            <label class="form-check-label" for="flexSwitchCheckDefault">Durumu</label>
+        </div>
+        <br />
+        <button class="btn btn-success mt-3" type="submit"> Resim Güncelle</button>
+    </form>
+</div>
+

@@ -1,0 +1,20 @@
+﻿@model UpdateSubCategoryDto
+@{
+    ViewData["Title"] = "UpdateSubCategory";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div style="background-color:white">
+    <form method="post" asp-action="UpdateSubCategory" asp-controller="AdminSubCategory">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="SubCategoryId" />
+        <label>Tür Adı</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Kategori Adını Giriniz">
+        <br />
+        <label>Durumu</label>
+        <input type="checkbox" class="form-control" asp-for="Status">
+        <br />
+        <button class="btn btn-success mt-3" type="submit">Güncell Yap</button>
+    </form>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model List<SubCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tür Adı</th>
+                <th>Durumu</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Name</td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminSubCategory/UpdateSubCategory/@item.SubCategoryId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminSubCategory/DeleteSubCategory/@item.SubCategoryId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminSubCategory/CreateSubCategory/">Yeni Tür</a>
+</div>
+

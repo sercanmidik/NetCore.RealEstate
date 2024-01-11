@@ -1,0 +1,60 @@
+﻿@model ResultGetInTouchDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/DefaultLayout/_DefaultLayout.cshtml";
+}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Bize Ulaşabilirsiniz</h1>
+            <p>Aşağıdaki Adresimize gelebilir , mail atabilir , buradan mesaj gönderebilir yada telefonla arayabilirsiniz</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="row gy-4">
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="bg-light rounded p-3">
+                            <div class="d-flex align-items-center bg-white rounded p-3" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                                <div class="icon me-3" style="width: 45px; height: 45px;">
+                                    <i class="fa fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <span>@Model.Address</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="bg-light rounded p-3">
+                            <div class="d-flex align-items-center bg-white rounded p-3" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                                <div class="icon me-3" style="width: 45px; height: 45px;">
+                                    <i class="fa fa-envelope-open text-primary"></i>
+                                </div>
+                                <span>@Model.Email</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="bg-light rounded p-3">
+                            <div class="d-flex align-items-center bg-white rounded p-3" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                                <div class="icon me-3" style="width: 45px; height: 45px;">
+                                    <i class="fa fa-phone-alt text-primary"></i>
+                                </div>
+                                <span>@Model.PhoneNumber</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <iframe class="position-relative rounded w-100 h-100"
+                        src="@Model.FrameString"
+                        frameborder="0" style="min-height: 400px; border:0;" allowfullscreen="" aria-hidden="false"
+                        tabindex="0">
+                    </iframe>
+               
+            </div>
+            @await Component.InvokeAsync("_MessageComponentPartial")
+        </div>
+    </div>
+</div>
+

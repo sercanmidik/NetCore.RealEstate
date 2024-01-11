@@ -1,0 +1,48 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tarih</th>
+                <th>Adı</th>
+                <th>Mail Adresi</th>
+                <th>Konu</th>
+                <th>Mesaj</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Date</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Subject</td>
+                    <td>@item.Message</td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">Aktif</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">Pasif</td>
+                    }
+                    <td><a class="btn btn-danger" href="/AdminContact/DeleteContact/@item.ContactId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+  
+</div>
+

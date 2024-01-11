@@ -1,0 +1,34 @@
+﻿@model CreateTeamFriendDto
+@{
+    ViewData["Title"] = "CreateTeamFriend";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div style="background-color:white">
+    <form method="post" asp-action="CreateTeamFriend" asp-controller="AdminTeamFriend">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <label>Marka İsmi</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Marka Adını Giriniz">
+        <br />
+        <label>Ünvanı</label>
+        <input type="text" class="form-control" asp-for="Title" placeholder="Ünvan Giriniz">
+        <br />
+        <label>Resim Adı</label>
+        <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Resim Adını Giriniz">
+        <br />
+        <label>Facebook Uzantısı</label>
+        <input type="text" class="form-control" asp-for="FacbookUrl" placeholder="Facebook Uzantısını Giriniz">
+        <br />
+        <label>Twitter Uzantısı</label>
+        <input type="text" class="form-control" asp-for="TwitterUrl" placeholder="Twitter Uzantısını Giriniz">
+        <br />
+        <label>İnstagram Uzantısı</label>
+        <input type="text" class="form-control" asp-for="InstagramUrl" placeholder="Instagram Uzantısını Giriniz">
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="Telefon Numarası Giriniz">
+        <br />
+        <button class="btn btn-success mt-3" type="submit">Kayıt Yap</button>
+    </form>
+</div>
+

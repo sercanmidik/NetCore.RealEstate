@@ -1,0 +1,40 @@
+﻿@model List<GroupByProductDetailDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+   
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Adres</th>
+                <th>Ücret</th>
+                <th>Açıklama</th>
+                <th>Detay Gör</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                
+                <tr>
+                    <th>@item.ProductId</th>
+                    <td>@item.Title</td>
+                    <td>@item.Adress</td>
+                    <td>@item.Price</td>
+                    <td>@item.Description</td>
+                    <td><a class="btn btn-warning" href="/AdminProductDetail/LookProductDetailId/@item.ProductId">Detay Gör</a></td>
+                    <td><a class="btn btn-danger" href="/AdminProductDetail/DeleteProductDetail/@item.ProductId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-danger" href="/AdminProductDetail/CreateProductDetail/">Özellik Ekle</a>
+</div>
+

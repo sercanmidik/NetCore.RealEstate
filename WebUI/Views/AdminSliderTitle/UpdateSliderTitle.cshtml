@@ -1,0 +1,26 @@
+﻿@model UpdateSliderTitleDto
+@{
+    ViewData["Title"] = "UpdateSliderTitle";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div style="background-color:white">
+    <form method="post" asp-action="UpdateSliderTitle" asp-controller="AdminSliderTitle">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="SliderTitleId" />
+        <label>Marka İsmi</label>
+        <input type="text" class="form-control" asp-for="Title" placeholder="Başlık Adını Giriniz">
+        <br />
+        <label>İçerik</label>
+        <input type="text" class="form-control" asp-for="Content" placeholder="İçerik Adını Giriniz">
+        <br />
+        <label>Resim Adı</label>
+        <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Resim Adını Giriniz">
+        <br />
+        <label>Durumu</label>
+        <input type="checkbox" class="form-control" asp-for="Status">
+        <br />
+        <button class="btn btn-success mt-3" type="submit">Güncelle Yap</button>
+    </form>
+</div>
+

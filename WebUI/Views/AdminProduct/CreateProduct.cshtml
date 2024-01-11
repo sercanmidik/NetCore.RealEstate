@@ -1,0 +1,47 @@
+﻿@model CreateProductDto
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post" asp-action="CreateProduct" asp-controller="AdminProduct">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <label>Kategori Adı</label>
+    <select class="form-control" asp-items="@ViewBag.category" asp-for="CategoryId">
+    </select>
+    <br />
+    <label asp-for="SubCategoryId">Alt Kategori Adı</label>
+    <select class="form-control" asp-items="@ViewBag.subcategory" asp-for="SubCategoryId">
+    </select>
+    <br />
+    <label>Fiyatı</label>
+    <input type="number" asp-for="Price" class="form-control" />
+    <br />
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Adres</label>
+    <input type="text" asp-for="Address" class="form-control" />
+    <br />
+    <label>Alanı</label>
+    <input type="number" asp-for="Area" class="form-control" />
+    <br />
+    <label>Oda Sayısı</label>
+    <input type="number" asp-for="RoomCount" class="form-control" />
+    <br />
+    <label>Bina Yaşı</label>
+    <input type="number" asp-for="HouseAge" class="form-control" />
+    <br />
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br />
+    <div class="form-check form-switch">
+        <input asp-for="ShowCase" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+        <label class="form-check-label" for="flexSwitchCheckDefault">ShowCase</label>
+    </div>
+    <br />
+    <label>Resim Adı</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <button class="btn btn-success" type="submit">Ürün Kaydet</button>
+</form>
+

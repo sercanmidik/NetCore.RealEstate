@@ -1,0 +1,63 @@
+﻿@model ProductDetailViewModel
+@{
+    ViewData["Title"] = "ProductDetail";
+    Layout = "~/Views/DefaultLayout/_DefaultLayout.cshtml";
+    int propertyCount = Model.ProductDetailDtos.Count;
+}
+
+<div class="container-fluid bg-white p-1">
+    <div class="row align-items-center flex-column-reverse flex-md-row">  
+        <div class="col-md-6 animated fadeIn">
+            <div class="owl-carousel header-carousel">
+                @foreach (var item in Model.ProductDetailDtos)
+                {
+                    if (item.PropertyName == "RESİM ADI")
+                    {
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="~/myimages/product/@item.PropertyValue" alt="">
+                        </div>
+                    }
+                }    
+            </div>
+            <form style="background-color:white">
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" asp-for="@Model.Title" readonly />
+                </div>
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" asp-for="@Model.Adress" readonly />
+                </div>
+                 <div class="form-group my-3">
+                    <input type="text" class="form-control" asp-for="@Model.Price" readonly />
+                </div>
+                <div class="form-group my-3">
+                    <textarea type="text" class="form-control" rows="8" asp-for="@Model.Description" readonly></textarea>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-6 mt-lg-5">
+           @if(propertyCount>0)
+            {
+                <ul class="list-group list-group-flush">
+                    @foreach (var item in Model.ProductDetailDtos)
+                    {
+                        if (item.PropertyName != "RESİM ADI")
+                        {
+                            <li class="list-group-item">@item.PropertyName : @item.PropertyValue</li>
+                        }
+                    }
+                </ul>
+            }
+            else
+            {
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">İlan Detayı Girilmemiş</li>    
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+

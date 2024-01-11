@@ -1,0 +1,47 @@
+﻿@model List<ContactUs>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Başlık</th>
+                <th>İçerik</th>
+                <th>Resim</th>
+                <th>Durum</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Title</td>
+                    <td>@item.Content</td>
+                    <td><img src="~/myimages/contactus/@item.ImageUrl" alt="Resim yok" style="width:75px;height:75px" /></td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminContactUs/UpdateContactUs/@item.ContactUsId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminContactUs/DeleteContactUs/@item.ContactUsId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminContactUs/CreateContactUs/">Yeni İçerik</a>
+</div>
+

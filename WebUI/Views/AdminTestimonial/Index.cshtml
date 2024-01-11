@@ -1,0 +1,45 @@
+﻿@model List<Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Adı</th>
+                <th>Logo</th>
+                <th>Durumu</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Name</td>
+                    <td><img src="~/myimages/testimonial/@item.ImageUrl" alt="Resim yok" style="width:75px;height:75px" /></td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminTestimonial/UpdateTestimonial/@item.TestimonialId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminTestimonial/DeleteTestimonial/@item.TestimonialId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminTestimonial/CreateTestimonial/">Yeni Yorum Ekle</a>
+</div>
+

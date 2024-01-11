@@ -1,0 +1,47 @@
+﻿@model List<SliderTitle>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Başlık</th>
+                <th>Yazı</th>
+                <th>Resim</th>
+                <th>Durum</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Title</td>
+                    <td>@item.Content</td>
+                    <td><img src="~/myimages/slidertitle/@item.ImageUrl" alt="Resim yok" style="width=75px" height="75px" /></td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminSliderTitle/UpdateSliderTitle/@item.SliderTitleId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminSliderTitle/DeleteSliderTitle/@item.SliderTitleId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminSliderTitle/CreateSliderTitle/">Yeni Slayt Ekle</a>
+</div>
+

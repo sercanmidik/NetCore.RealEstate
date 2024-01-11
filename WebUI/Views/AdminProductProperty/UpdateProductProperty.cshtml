@@ -1,0 +1,17 @@
+﻿@model UpdateProductPropertyDto
+@{
+    ViewData["Title"] = "UpdateProductProperty";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div style="background-color:white">
+    <form method="post" asp-action="UpdateProductProperty" asp-controller="AdminProductProperty">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="ProductProperyId" />
+        <label>Özellik Adı Giriniz</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Özellik Giriniz">
+        <br />
+        <button class="btn btn-success mt-3" type="submit">Güncelleme Yap</button>
+    </form>
+</div>
+

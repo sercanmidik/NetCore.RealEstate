@@ -1,0 +1,43 @@
+﻿@model List<Gallery>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="table-responsive" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Logo</th>
+                <th>Durumu</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td><img src="~/myimages/gallery/@item.ImageUrl" alt="Resim yok" style="width:75px;height:75px" /></td>
+                    @if (item.Status)
+                    {
+                        <td class="color-success">True</td>
+                    }
+                    else
+                    {
+                        <td class="color-danger">False</td>
+                    }
+                    <td><a class="btn btn-warning" href="/AdminGallery/UpdateGallery/@item.GalleryId">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/AdminGallery/DeleteGallery/@item.GalleryId">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/AdminGallery/CreateGallery/">Galeri İçin Yeni Resim</a>
+</div>
+

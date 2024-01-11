@@ -1,0 +1,21 @@
+﻿@model CreateProductDetailDto
+@{
+    ViewData["Title"] = "CreateProductDetail";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post" asp-action="CreateProductDetail" asp-controller="AdminProductDetail">
+    <label asp-for="ProductId">Ürün Başlığı</label>
+    <select class="form-control" asp-items="@ViewBag.products" asp-for="ProductId">
+    </select>
+    <br />
+    <label asp-for="ProductPropertyId">Özellik Adı</label>
+    <select class="form-control" asp-items="@ViewBag.propertylist" asp-for="ProductPropertyId">
+    </select>
+    <br />
+    <label>Değer</label>
+    <input type="text" asp-for="PropertyValue" class="form-control" />
+    <br />
+    <button class="btn btn-success" type="submit">Özellik Ekle</button>
+</form>
+

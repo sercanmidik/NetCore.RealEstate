@@ -1,0 +1,22 @@
+﻿@model CreateContactUsDto
+@{
+    ViewData["Title"] = "CreateContactUs";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div style="background-color:white">
+    <form method="post" asp-action="CreateContactUs" asp-controller="AdminContactUs">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <label>Başlık</label>
+        <input type="text" class="form-control" asp-for="Title" placeholder="Marka Adını Giriniz">
+        <br />
+        <label>İçerik</label>
+        <input type="text" class="form-control" asp-for="Content" placeholder="Marka Adını Giriniz">
+        <br />
+        <label>Resim Adı</label>
+        <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Resim Adını Giriniz">
+        <br />
+        <button class="btn btn-success mt-3" type="submit">İçerik Ekle</button>
+    </form>
+</div>
+
